@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="icons/successCheckBoxIcon/style.css" />
+
+    
+
+    <script src="/js/model.js"></script>
+    <script src="/js/admin/adminController.js"></script>
+    <script src="/js/admin/adminView.js"></script>
+    <script src="/js/user/userController.js"></script>
+    <script src="/js/user/userView.js"></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+      * {
+        font-family: sans-serif;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        /* background-color: #f5f1ea; */
+        /* background-color: #FAFAFA; */
+      }
+      .container {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #E6E6E6;
+      
+      }
+
+      .header {
+        width: 50%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin: 1rem 0;
+        background-color: orange;
+        border-radius: 0.4rem;
+      }
+
+      .btnUserPage {
+        background-color: #04aa6d;
+        border-radius: 0.4rem;
+        font-size: 1rem;
+        font-family: "Source Sans Pro", sans-serif;
+        padding: 0.4rem 1.4rem;
+        cursor: pointer;
+      }
+
+  /*header-form-content display flex column  altinda */
+      .form-content {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      /* admin-form ise form-content in icinde...*/
+      .admin-form {
+        width: 100%;
+
+      }
+
+      .happeningformRow {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+      .formLabel {
+          font-size: 0.9rem;
+        color: rgb(75 85 99 / 1);
+        margin: 0.3rem 0;
+        display: flex;
+        
+      }
+      .requiredStar {
+        color: red;
+        margin-right: 0.1rem;
+        font-size: 1.2rem;
+      }
+      .form-element,.paymentTypeContainer,.happeningDateRow {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        padding: 0.375rem 0;
+        padding-left: 0.3rem;
+        font-size: 0.8rem;
+        color: #6e7375;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s;
+      }
+
+      .errorValidationMessage {
+        font-size: 0.8rem;
+        color: red;
+      }
+      /*success icon*/
+
+      .icon-checkmark:before {
+        content: "\ea10";
+        color: green;
+        margin-left: 0.3rem;
+        margin-top: 0.1rem;
+      }
+
+      .form-date {
+        width: 30%;
+        padding: 0.375rem 0;
+        padding-left: 0.3rem;
+        font-size: 0.8rem;
+        color: #6e7375;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s;
+        margin-top: 0.4rem;
+      }
+
+     
+
+      .happeningDateRow {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .happeningDate {
+        width: 30%;
+      }
+      .happeningDateInput {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        margin-top:-.08rem; 
+      }
+
+      .spantextDate {
+        font-size: 0.9rem;
+        color: rgb(75 85 99 / 1);
+        margin: 0.4rem 1rem;
+      }
+      .spantext {
+        font-size: 0.9rem;
+        color: rgb(75 85 99 / 1);
+        margin: 0.4rem 0;
+      }
+
+      .heppeningDateTitles {
+        font-size: 0.8rem;
+        color: #6e7375;
+      }
+    
+     
+
+      .paymentCategory:hover {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+      }
+      .errorStyle {
+        border: 1px solid red;
+      }
+
+      .successStyle {
+        border: 1px solid green;
+      }
+
+      .eventDateTime:hover {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+      }
+
+      .description {
+        min-height: 8rem;
+        text-align: left;
+      }
+      .form-element:hover {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+      }
+      .form-element:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+      }
+
+      .form-date:hover {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+      }
+      .form-date:focus {
+        color: #495057;
+        background-color: #fff;
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+      }
+
+    
+     .input-top-mrgn{
+     
+       margin-top:-.4rem;
+     }
+
+    
+      .paymentTypeContainer {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+      .paymentType {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        
+      }
+
+      .payTypeInput {
+        display: inline-block;
+        width: 1.5rem;
+        height: 1rem;
+      }
+
+      .submitBtn {
+        display: flex;
+        justify-content: flex-end;
+        padding: 1rem;
+      }
+
+      .btn {
+        display: inline-block;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        border: 1px solid transparent;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 0.25rem;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+          border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+
+      .btn-primary {
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+      .btn-primary:hover {
+        cursor: pointer;
+        color: #fff;
+        background-color: #0069d9;
+        border-color: #0062cc;
+      }
+
+
+ /* ErrorAlert Message*/     
+
+ 
+.alert {
+  box-sizing: border-box;
+  width: 50%;
+  margin: 3rem auto;
+  padding: 10px;
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 0 0 15px 5px #ccc;
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  opacity: 0.5;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 50%;
+  right: 15px;
+  top: 25px;
+  text-align: center;
+  font-size: 1.6em;
+  cursor: pointer;
+}
+/* islemler bitince danger kismini sil... */
+
+.error-alert {
+  background-color: #f7a7a3;
+  border-left: 5px solid #8f130c;
+}
+/* .error-alert .close {
+  border-color: #8f130c;
+  color: #8f130c;
+} */
+
+.success-alert {
+  background-color: #a8f0c6;
+  border-left: 5px solid #178344;
+}
+/* .success-alert .close*/
+.close {
+  border-color: #178344;
+  color: #178344;
+}
+
+.alert-message {
+width: 100%;
+position: fixed;
+top: -2rem;
+}
+
+
+
+
+      @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+    </style>
+  
+
+    
+  </head>
+  <body>
+    <div id="app"></div>
+    <script>
+      //console.log("model_: ",model);
+      updateView();
+      function updateView() {
+  console.log("updateView guncelleniyor!!!")
+        
+        const { page } = model.app;
+
+        switch (page) {
+          case "user":
+            return updateUserView();
+          case "admin":
+            return updateAdminView();
+
+          default:
+            break;
+        }
+      }
+    </script>
+  </body>
+</html>
