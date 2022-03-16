@@ -87,8 +87,8 @@ function createHappeningTitleHtml(){
      
    </div>
   `;
- 
-  console.log("Bunu cek edelim ne gelecek: ",showValidationStyle(model.inputs.adminPage.happening.title.isValidate,"errorStyle","successStyle"))
+ console.log("onchange true mi false mu buna da bakalim_ ",model.inputs.adminPage.isOnChange.title);
+  console.log("Bunu cek edelim ne gelecekkkk: ",showValidationStyle(model.inputs.adminPage.happening.title.isValidate,"errorStyle","successStyle"))
   return happeningTitle;
 }
 
@@ -103,13 +103,20 @@ Bunlarda input attributu idi
 //BIR PROBLEMIMIZ BIZ KULLANICI ALANI BOS BIRAKIP CI
 function onInputValidate(titleInput){
   console.log("onInput calisti....")
-  console.log("titleInput.valuezzzzz: ", titleInput.value);
+  console.log("titleInput.valuezzzzz: ", titleInput.value.length);
   if(!titleInput.value){
     model.inputs.adminPage.happening.title.isValidate=false;
     console.log("isValidate oninputun icinde son durumu..",  model.inputs.adminPage.happening.title.isValidate)
     console.log("burasi data silinmis ise calismasini bekliyoruz....")
     model.inputs.adminPage.isOnChange.title=true;
     updateView();
+  }else if(titleInput.value.length==1){
+    console.log("value 1.karakter oldugunda oninput tetiklenecek burasi calisacak....")
+ console.log("onchange oninput calisirken true mi false mu buna da bakalim_ ",model.inputs.adminPage.isOnChange.title);
+ model.inputs.adminPage.happening.title.isValidate=true;
+    updateView();
+    console.log("input u alalim--------------------------------------------------",document.getElementById("eventTitle").focus())
+    document.getElementById("eventTitle").setSelectionRange(1, 1);
   }
  
 
